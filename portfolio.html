@@ -1,12 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Origin Spark Labs | Portfolio</title>
+    <style>
+        body { background-color: #020617; color: #f8fafc; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 20px; line-height: 1.6; }
+        header { text-align: center; padding: 60px 0; border-bottom: 1px solid #1e293b; background: linear-gradient(to bottom, #0f172a, #020617); }
+        h1 { color: #38bdf8; font-size: 2.8rem; margin: 0; letter-spacing: -1px; }
+        .tagline { color: #94a3b8; font-size: 1.2rem; font-weight: 300; }
+        .section { max-width: 800px; margin: 50px auto; }
+        h2 { border-left: 4px solid #38bdf8; padding-left: 15px; margin-bottom: 30px; }
+        .card { 
+            background: #1e293b; 
+            padding: 25px; 
+            border-radius: 16px; 
+            border: 1px solid #334155;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .card:hover { transform: translateY(-5px); border-color: #38bdf8; }
+        .btn { 
+            background: linear-gradient(45deg, #38bdf8, #0ea5e9); 
+            color: #020617; 
+            padding: 14px 28px; 
+            text-decoration: none; 
+            border-radius: 10px; 
+            font-weight: bold; 
+            display: inline-block;
+            transition: opacity 0.2s;
+            border: none;
+            width: 100%;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        .btn:hover { opacity: 0.9; cursor: pointer; }
+        input, textarea { 
+            width: 100%; 
+            padding: 15px; 
+            margin-bottom: 15px;
+            border-radius: 10px; 
+            border: 1px solid #334155; 
+            background: #0f172a; 
+            color: white; 
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        footer { text-align: center; margin-top: 80px; padding: 40px; color: #475569; font-size: 0.9rem; border-top: 1px solid #1e293b; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Origin Spark Labs</h1>
+        <p class="tagline">Custom Web Solutions & App Development</p>
+    </header>
+
+    <div class="section">
+        <h2>My Work</h2>
+        <div class="card">
+            <div>
+                <h3>Spark Focus Timer</h3>
+                <p style="color: #94a3b8;">A high-performance productivity tool built for deep concentration and discipline.</p>
+            </div>
+            <a href="index.html" class="btn">Launch Project</a>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Freelance Services</h2>
+        <div class="card" style="border-left: 5px solid #38bdf8;">
+            <h3>Business Landing Pages</h3>
+            <p style="color: #94a3b8;">I build fast, modern, and responsive websites that help local businesses grow.</p>
+        </div>
+        <div class="card" style="border-left: 5px solid #f59e0b;">
+            <h3>Mobile UI Design</h3>
+            <p style="color: #94a3b8;">User-friendly designs optimized for the best experience on Android and iOS.</p>
+        </div>
+    </div>
+
     <div class="section">
         <h2>Start a Project</h2>
-        <div class="card" style="display: block;">
-            <p>Ready to take your business online? Send me a message.</p>
-            <form style="display: flex; flex-direction: column; gap: 10px;">
-                <input type="text" placeholder="Your Name" style="padding: 12px; border-radius: 8px; border: 1px solid #334155; background: #0f172a; color: white;">
-                <input type="email" placeholder="Your Email" style="padding: 12px; border-radius: 8px; border: 1px solid #334155; background: #0f172a; color: white;">
-                <textarea placeholder="Tell me about your project..." rows="4" style="padding: 12px; border-radius: 8px; border: 1px solid #334155; background: #0f172a; color: white;"></textarea>
-                <button type="button" onclick="alert('Message Sent! Origin Spark Labs will contact you soon.')" class="btn" style="border: none; cursor: pointer;">Send Message</button>
+        <div class="card">
+            <p>Ready to work together? Send me a message below.</p>
+            <form>
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="How can I help you?" rows="4" required></textarea>
+                <button type="button" onclick="alert('Success! Origin Spark Labs has received your message.')" class="btn">Send Message</button>
             </form>
         </div>
     </div>
+
+    <footer>
+        &copy; 2026 Origin Spark Labs. <br>
+        Designed & Developed by a Future CS Major.
+    </footer>
+
+</body>
+</html>
