@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spark Focus - Origin Spark Labs</title>
+    <style>
+        body { 
+            background-color: #0f172a; 
+            color: white; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            height: 100vh; 
+            margin: 0; 
+        }
+        .container {
+            text-align: center;
+            background: #1e293b;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            border: 1px solid #334155;
+        }
+        h1 { color: #38bdf8; margin-bottom: 0.5rem; }
+        p { color: #94a3b8; margin-bottom: 2rem; }
+        .timer { 
+            font-size: 5rem; 
+            font-weight: bold; 
+            margin-bottom: 20px; 
+            color: #f8fafc;
+            font-variant-numeric: tabular-nums;
+        }
+        .controls button { 
+            padding: 12px 25px; 
+            font-size: 1rem; 
+            font-weight: 600;
+            cursor: pointer; 
+            border: none; 
+            border-radius: 8px; 
+            margin: 8px; 
+            transition: all 0.2s; 
+        }
+        .start { background-color: #0ea5e9; color: white; }
+        .start:hover { background-color: #0284c7; }
+        .reset { background-color: #ef4444; color: white; }
+        .reset:hover { background-color: #dc2626; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Spark Focus</h1>
+        <p>by Origin Spark Labs</p>
+        
+        <div class="timer" id="display">25:00</div>
+
+        <div class="controls">
+            <button class="start" onclick="toggleTimer()" id="startBtn">Start Focusing</button>
+            <button class="reset" onclick="resetTimer()">Reset</button>
+        </div>
+    </div>
+
+    <script>
+        let timeLeft = 25 * 60;
+        let timerId = null;
+
+        function updateDisplay() {
+            const mins = Math.floor(timeLeft / 60);
+            const secs = timeLeft % 60;
+            document.getElementById('display').textContent = 
+                `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        function toggleTimer() {
+            if (timerId) {
+                clearInterval(timerId);
+                timerId = null;
+                document.getElementById('startBtn').textContent = 'Resume';
+                document.getElementById('startBtn').style.backgroundColor = '#10b981';
+            } else {
+                document.getElementById('startBtn').textContent = 'Pause';
+                document.getElementById('startBtn').style.backgroundColor = '#f59e0b';
+                timerId = setInterval(() => {
+                    if (timeLeft > 0) {
+                        timeLeft--;
+                        updateDisplay();
+                    } else {
+                        clearInterval(timerId);
+                        alert("Time is up! Great job focusing.");
+                    }
+                }, 1000);
+            }
+        }
+
+        function resetTimer() {
+            clearInterval(timerId);
+            timerId = null;
+            timeLeft = 25 * 60;
+            updateDisplay();
+            document.getElementById('startBtn').textContent = 'Start Focusing';
+            document.getElementById('startBtn').style.backgroundColor = '#0ea5e9';
+        }
+    </script>
+</body>
+</html>
