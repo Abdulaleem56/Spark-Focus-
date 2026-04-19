@@ -3,182 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Origin Spark Labs | Professional Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Origin Spark Labs | Portfolio</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        body { background-color: #f4f7f6; color: #333; line-height: 1.6; }
-        
-        /* Header Section */
-        header { 
-            background: linear-gradient(135deg, #003366 0%, #0055aa 100%); 
-            color: white; 
-            padding: 80px 20px; 
-            text-align: center; 
-        }
-        header h1 { font-size: 3rem; margin-bottom: 10px; letter-spacing: 2px; }
-        header p { font-size: 1.2rem; opacity: 0.9; }
-
-        /* Navigation */
-        nav { 
-            background: #fff; 
-            padding: 15px 5%; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky; top: 0; z-index: 1000;
-        }
-        .nav-logo { font-weight: 700; color: #003366; font-size: 1.5rem; }
-        .nav-logo span { color: #ff6600; }
-
-        /* Section Styling */
-        section { padding: 60px 10%; }
-        h2 { text-align: center; margin-bottom: 40px; color: #003366; font-size: 2rem; }
-
-        /* Project Cards */
-        .project-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 30px; 
-        }
+        body { background-color: #020617; color: #f8fafc; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 20px; line-height: 1.6; }
+        header { text-align: center; padding: 60px 0; background: linear-gradient(to bottom, #0f172a, #020617); }
+        h1 { color: #38bdf8; font-size: 2.8rem; margin: 0; letter-spacing: -1px; }
+        .tagline { color: #94a3b8; font-size: 1.2rem; font-weight: 300; margin-bottom: 20px; }
+        .section { max-width: 800px; margin: 40px auto; }
+        h2 { border-left: 4px solid #38bdf8; padding-left: 15px; margin-bottom: 30px; }
         .card { 
-            background: white; 
-            border-radius: 15px; 
-            overflow: hidden; 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
-            transition: transform 0.3s ease;
+            background: #1e293b; 
+            padding: 25px; 
+            border-radius: 16px; 
+            border: 1px solid #334155;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
-        .card:hover { transform: translateY(-10px); }
-        .card-img { 
-            height: 180px; 
-            background: #003366; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            color: white; 
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-        .card-content { padding: 25px; }
-        .card-content h3 { margin-bottom: 10px; color: #333; }
-        .card-content p { font-size: 0.95rem; color: #666; margin-bottom: 15px; }
-        .tag { 
-            display: inline-block; 
-            padding: 5px 12px; 
-            border-radius: 20px; 
-            font-size: 0.8rem; 
-            font-weight: 600; 
-            color: white;
-        }
-        .tag-html { background: #ff6600; }
-        .tag-cs { background: #4CAF50; }
-        .tag-js { background: #f7df1e; color: black; }
-
-        /* Skills Section */
-        .skills-container { 
-            display: flex; 
-            flex-wrap: wrap; 
-            justify-content: center; 
-            gap: 15px; 
-        }
-        .skill-badge { 
-            background: #003366; 
-            color: white; 
-            padding: 10px 25px; 
-            border-radius: 30px; 
-            font-weight: 500; 
-        }
-
-        /* Footer / CTA */
-        footer { 
-            background: #222; 
-            color: white; 
-            text-align: center; 
-            padding: 60px 20px; 
-        }
-        .cta-btn { 
-            background: #1dbf73; 
-            color: white; 
-            padding: 15px 40px; 
+        .card:hover { transform: translateY(-5px); border-color: #38bdf8; }
+        .btn { 
+            background: linear-gradient(45deg, #38bdf8, #0ea5e9); 
+            color: #020617; 
+            padding: 14px 28px; 
             text-decoration: none; 
-            border-radius: 50px; 
-            font-weight: 700; 
+            border-radius: 10px; 
+            font-weight: bold; 
             display: inline-block;
-            margin-top: 20px;
-            transition: 0.3s;
+            transition: opacity 0.2s;
+            border: none;
+            text-align: center;
+            box-sizing: border-box;
+            width: 100%;
+            cursor: pointer;
         }
-        .cta-btn:hover { background: #19a463; transform: scale(1.05); }
+        .contact-bar { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 40px; }
+        .contact-btn { padding: 10px 20px; font-size: 0.9rem; border-radius: 8px; text-decoration: none; font-weight: bold; }
+        .whatsapp { background: #25D366; color: white; }
+        .email { background: #334155; color: #38bdf8; border: 1px solid #38bdf8; }
+        input, textarea, select { 
+            width: 100%; 
+            padding: 15px; 
+            margin-bottom: 15px;
+            border-radius: 10px; 
+            border: 1px solid #334155; 
+            background: #0f172a; 
+            color: white; 
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        footer { text-align: center; margin-top: 80px; padding: 40px; color: #475569; font-size: 0.9rem; border-top: 1px solid #1e293b; }
     </style>
 </head>
 <body>
 
-    <nav>
-        <div class="nav-logo">ORIGIN <span>SPARK</span></div>
-        <div>Software & Design Studio</div>
-    </nav>
-
     <header>
-        <h1>ORIGIN SPARK LABS</h1>
-        <p>Specializing in Modern Web Development & Game Logic Systems</p>
+        <h1>Origin Spark Labs</h1>
+        <p class="tagline">Custom Web Solutions & App Development for a Global Market</p>
+        
+        <div class="contact-bar">
+            <a href="https://wa.me/2348120829956" class="contact-btn whatsapp">WhatsApp</a>
+            <a href="mailto:originsparklabs@gmail.com" class="contact-btn email">Email Me</a>
+            <a href="https://github.com/abdulaleem56" class="contact-btn email" style="color: white; border-color: #475569;">GitHub</a>
+        </div>
     </header>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p style="text-align: center; max-width: 800px; margin: 0 auto;">
-            I am a full-stack developer dedicated to building high-quality digital experiences. 
-            Whether it's a responsive e-commerce storefront or complex multiplayer game logic in Unity, 
-            I focus on performance, security, and clean code.
-        </p>
-    </section>
-
-    <section id="projects">
-        <h2>Featured Work</h2>
-        <div class="project-grid">
-            <div class="card">
-                <div class="card-img" style="background: #0055aa;">Spark Focus</div>
-                <div class="card-content">
-                    <h3>Spark Focus App</h3>
-                    <p>A productivity-focused application designed to help users manage tasks and stay on track with a clean UI.</p>
-                    <span class="tag tag-js">JavaScript / UI</span>
-                </div>
+    <div class="section">
+        <h2>My Work</h2>
+        <div class="card">
+            <div>
+                <h3>Spark Focus Timer</h3>
+                <p style="color: #94a3b8;">A high-performance productivity tool built for deep concentration and discipline.</p>
             </div>
-            <div class="card">
-                <div class="card-img" style="background: #ff6600;">Mumhaleem Store</div>
-                <div class="card-content">
-                    <h3>E-Commerce Solution</h3>
-                    <p>A fully responsive retail landing page for Mumhaleem Store featuring a clean product grid and navy/orange branding.</p>
-                    <span class="tag tag-html">HTML / CSS</span>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-img" style="background: #333;">Network System</div>
-                <div class="card-content">
-                    <h3>Unity Netcode Zone</h3>
-                    <p>Advanced C# multiplayer logic for a shrinking play zone with server-side authority and smooth interpolation.</p>
-                    <span class="tag tag-cs">C# / Unity</span>
-                </div>
-            </div>
+            <a href="index.html" class="btn">Launch Project</a>
         </div>
-    </section>
+    </div>
 
-    <section id="skills" style="background: #eef2f3;">
-        <h2>Technical Expertise</h2>
-        <div class="skills-container">
-            <div class="skill-badge">HTML5</div>
-            <div class="skill-badge">CSS3</div>
-            <div class="skill-badge">C# Programming</div>
-            <div class="skill-badge">Unity Game Engine</div>
-            <div class="skill-badge">GitHub & Version Control</div>
-            <div class="skill-badge">Netcode for GameObjects</div>
+    <div class="section">
+        <h2>Freelance Services</h2>
+        <div class="card" style="border-left: 5px solid #38bdf8;">
+            <h3>Global Business Solutions</h3>
+            <p style="color: #94a3b8;">I build high-performance, modern websites for businesses and international clients worldwide.</p>
         </div>
-    </section>
+        <div class="card" style="border-left: 5px solid #f59e0b;">
+            <h3>International UI/UX Design</h3>
+            <p style="color: #94a3b8;">Professional user interfaces optimized for global standards on Android and iOS devices.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Start a Project</h2>
+        <div class="card">
+            <p>Ready to collaborate? Tell me where you are located.</p>
+            <form action="https://formspree.io/f/xgoryzyn" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <select name="country" required>
+                    <option value="" disabled selected>Select Your Country</option>
+                    <option value="Nigeria">Nigeria</option>
+                    <option value="Hungary">Hungary</option>
+                    <option value="Canada">Canada</option>
+                    <option value="Saudi Arabia">Saudi Arabia</option>
+                    <option value="United States">United States</option>
+                    <option value="United Kingdom">United Kingdom</option>
+                    <option value="Other">Other (Global)</option>
+                </select>
+                <textarea name="message" placeholder="Tell me about your project..." rows="4" required></textarea>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </div>
 
     <footer>
-        <h3>Ready to start your project?</h3>
-        <p>Contact Origin Spark Labs for premium development services.</p>
-        <a href="https://www.fiverr.com/abdulaleem" class="cta-btn">Hire Me on Fiverr</a>
-        <p style="margin-top: 40px; font-size: 0.8rem; opacity: 0.6;">&copy; 2026 Origin Spark Labs. All Rights Reserved.</p>
+        &copy; 2026 Origin Spark Labs. <br>
+        Serving International Clients | Designed by Origin Spark Labs
     </footer>
 
 </body>
