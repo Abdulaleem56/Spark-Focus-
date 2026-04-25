@@ -3,157 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spark AI | Origin Spark Labs</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    
+    <title>Origin Spark Labs | Portfolio</title>
     <style>
-        * { box-sizing: border-box; font-family: 'Inter', -apple-system, sans-serif; }
-        body { background: #020617; color: #f8fafc; margin: 0; height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
-        
-        /* Header */
-        header { padding: 15px 20px; background: #0f172a; border-bottom: 1px solid #1e293b; display: flex; justify-content: space-between; align-items: center; z-index: 10; }
-        .logo { font-weight: 800; font-size: 1.2rem; color: #f8fafc; letter-spacing: 1px; }
-        .logo span { color: #38bdf8; }
-        
-        .head-btns { display: flex; gap: 8px; }
-        button.small { background: #1e293b; border: 1px solid #334155; color: #94a3b8; padding: 6px 12px; border-radius: 8px; cursor: pointer; font-size: 0.75rem; }
-
-        /* Main Chat Window */
-        #chat-container { flex: 1; overflow-y: auto; padding: 25px; display: flex; flex-direction: column; gap: 20px; background: radial-gradient(circle at top right, #0f172a, #020617); }
-        
-        .message { max-width: 85%; padding: 14px 20px; border-radius: 18px; font-size: 0.95rem; line-height: 1.5; animation: fadeIn 0.3s ease; position: relative; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
-
-        .user-message { align-self: flex-end; background: #38bdf8; color: #020617; border-bottom-right-radius: 4px; }
-        .ai-message { align-self: flex-start; background: rgba(30, 41, 59, 0.7); border: 1px solid #334155; border-bottom-left-radius: 4px; backdrop-filter: blur(10px); }
-        .ai-name { font-size: 0.65rem; font-weight: bold; color: #38bdf8; margin-bottom: 6px; display: block; text-transform: uppercase; letter-spacing: 1px; }
-
-        pre { background: #000; padding: 15px; border-radius: 10px; overflow-x: auto; border: 1px solid #334155; margin-top: 10px; }
-        
-        /* Input & Signature Footer */
-        .footer-area { background: #0f172a; border-top: 1px solid #1e293b; padding: 15px 20px; }
-        .input-area { display: flex; gap: 10px; margin-bottom: 10px; }
-        input { flex: 1; background: #020617; border: 1px solid #334155; color: white; padding: 14px; border-radius: 12px; outline: none; }
-        
-        .btn-action { padding: 14px; border-radius: 12px; cursor: pointer; border: none; font-weight: bold; transition: 0.2s; }
-        .mic-btn { background: #1e293b; color: white; border: 1px solid #334155; width: 50px; }
-        .send-btn { background: #38bdf8; color: #020617; padding-left: 25px; padding-right: 25px; }
-        .mic-active { background: #ef4444; border-color: white; }
-
-        .signature { text-align: center; font-size: 0.7rem; color: #475569; letter-spacing: 1px; text-transform: uppercase; font-weight: 600; }
-        .signature span { color: #38bdf8; }
+        body { background-color: #020617; color: #f8fafc; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 20px; line-height: 1.6; }
+        header { text-align: center; padding: 60px 0; background: linear-gradient(to bottom, #0f172a, #020617); }
+        h1 { color: #38bdf8; font-size: 2.8rem; margin: 0; letter-spacing: -1px; }
+        .tagline { color: #94a3b8; font-size: 1.2rem; font-weight: 300; margin-bottom: 20px; }
+        .section { max-width: 800px; margin: 40px auto; }
+        h2 { border-left: 4px solid #38bdf8; padding-left: 15px; margin-bottom: 30px; }
+        .card { 
+            background: #1e293b; 
+            padding: 25px; 
+            border-radius: 16px; 
+            border: 1px solid #334155;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .card:hover { transform: translateY(-5px); border-color: #38bdf8; }
+        .btn { 
+            background: linear-gradient(45deg, #38bdf8, #0ea5e9); 
+            color: #020617; 
+            padding: 14px 28px; 
+            text-decoration: none; 
+            border-radius: 10px; 
+            font-weight: bold; 
+            display: inline-block;
+            transition: opacity 0.2s;
+            border: none;
+            text-align: center;
+            box-sizing: border-box;
+            width: 100%;
+            cursor: pointer;
+        }
+        .contact-bar { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 40px; }
+        .contact-btn { padding: 10px 20px; font-size: 0.9rem; border-radius: 8px; text-decoration: none; font-weight: bold; }
+        .whatsapp { background: #25D366; color: white; }
+        .email { background: #334155; color: #38bdf8; border: 1px solid #38bdf8; }
+        input, textarea, select { 
+            width: 100%; 
+            padding: 15px; 
+            margin-bottom: 15px;
+            border-radius: 10px; 
+            border: 1px solid #334155; 
+            background: #0f172a; 
+            color: white; 
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        footer { text-align: center; margin-top: 80px; padding: 40px; color: #475569; font-size: 0.9rem; border-top: 1px solid #1e293b; }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">SPARK <span>AI</span></div>
-        <div class="head-btns">
-            <button class="small" onclick="exportPDF()">📥 PDF</button>
-            <button class="small" onclick="clearMemory()">🗑️ Reset</button>
+        <h1>Origin Spark Labs</h1>
+        <p class="tagline">Custom Web Solutions & App Development for a Global Market</p>
+        
+        <div class="contact-bar">
+            <a href="https://wa.me/2348120829956" class="contact-btn whatsapp">WhatsApp</a>
+            <a href="mailto:originsparklabs@gmail.com" class="contact-btn email">Email Me</a>
+            <a href="https://github.com/abdulaleem56" class="contact-btn email" style="color: white; border-color: #475569;">GitHub</a>
         </div>
     </header>
 
-    <div id="chat-container"></div>
-
-    <div class="footer-area">
-        <div class="input-area">
-            <button class="btn-action mic-btn" id="mic-btn" onclick="startVoice()">🎙️</button>
-            <input type="text" id="user-input" placeholder="Message Spark AI..." onkeypress="if(event.key==='Enter')sendMessage()">
-            <button class="btn-action send-btn" onclick="sendMessage()">SEND</button>
+    <div class="section">
+        <h2>My Work</h2>
+        <div class="card">
+            <div>
+                <h3>Spark Focus Timer</h3>
+                <p style="color: #94a3b8;">A high-performance productivity tool built for deep concentration and discipline.</p>
+            </div>
+            <a href="index.html" class="btn">Launch Project</a>
         </div>
-        <div class="signature">Created by <span>Origin Spark Labs</span></div>
     </div>
 
-    <script>
-        const chatBox = document.getElementById('chat-container');
-        const userInput = document.getElementById('user-input');
+    <div class="section">
+        <h2>Freelance Services</h2>
+        <div class="card" style="border-left: 5px solid #38bdf8;">
+            <h3>Global Business Solutions</h3>
+            <p style="color: #94a3b8;">I build high-performance, modern websites for businesses and international clients worldwide.</p>
+        </div>
+        <div class="card" style="border-left: 5px solid #f59e0b;">
+            <h3>International UI/UX Design</h3>
+            <p style="color: #94a3b8;">Professional user interfaces optimized for global standards on Android and iOS devices.</p>
+        </div>
+    </div>
 
-        let memory = JSON.parse(localStorage.getItem('spark_ai_v2')) || [
-            { role: 'ai', text: 'Spark AI System Online. Developed and secured by Origin Spark Labs.' }
-        ];
+    <div class="section">
+        <h2>Start a Project</h2>
+        <div class="card">
+            <p>Ready to collaborate? Tell me where you are located.</p>
+            <form action="https://formspree.io/f/xgoryzyn" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <select name="country" required>
+                    <option value="" disabled selected>Select Your Country</option>
+                    <option value="Nigeria">Nigeria</option>
+                    <option value="Hungary">Hungary</option>
+                    <option value="Canada">Canada</option>
+                    <option value="Saudi Arabia">Saudi Arabia</option>
+                    <option value="United States">United States</option>
+                    <option value="United Kingdom">United Kingdom</option>
+                    <option value="Other">Other (Global)</option>
+                </select>
+                <textarea name="message" placeholder="Tell me about your project..." rows="4" required></textarea>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </div>
 
-        function save() { localStorage.setItem('spark_ai_v2', JSON.stringify(memory)); }
-        function render() {
-            chatBox.innerHTML = '';
-            memory.forEach(m => addBubble(m.text, m.role));
-        }
+    <footer>
+        &copy; 2026 Origin Spark Labs. <br>
+        Serving International Clients | Designed by Origin Spark Labs
+    </footer>
 
-        function addBubble(text, role) {
-            const div = document.createElement('div');
-            div.className = `message ${role === 'user' ? 'user-message' : 'ai-message'}`;
-            if(role === 'ai') {
-                const nameTag = document.createElement('span');
-                nameTag.className = 'ai-name';
-                nameTag.innerText = 'Spark AI';
-                div.appendChild(nameTag);
-            }
-            const content = document.createElement('span');
-            if (text.includes('```')) {
-                const parts = text.split('```');
-                content.innerHTML = `${parts[0]}<pre><code>${parts[1]}</code></pre>${parts[2] || ''}`;
-                const codeBlock = content.querySelector('code');
-                if(codeBlock) hljs.highlightElement(codeBlock);
-            } else {
-                content.innerText = text;
-            }
-            div.appendChild(content);
-            chatBox.appendChild(div);
-            chatBox.scrollTop = chatBox.scrollHeight;
-        }
-
-        function sendMessage() {
-            const val = userInput.value.trim();
-            if (!val) return;
-            memory.push({ role: 'user', text: val });
-            addBubble(val, 'user-message');
-            userInput.value = '';
-            save();
-
-            setTimeout(() => {
-                const reply = botLogic(val);
-                memory.push({ role: 'ai', text: reply });
-                addBubble(reply, 'ai-message');
-                save();
-            }, 600);
-        }
-
-        function botLogic(input) {
-            const s = input.toLowerCase();
-            if (s.includes("who created you") || s.includes("owner")) return "I was created and engineered by Origin Spark Labs.";
-            if (s.includes("origin spark labs")) return "Origin Spark Labs is my home. We build high-performance software systems.";
-            if (s.includes("code")) return "Accessing Spark Labs archives... \n```javascript\n// Spark AI Core Logic\nconst studio = 'Origin Spark Labs';\nconsole.log(`System by ${studio}`);\n```";
-            return "Copy that. Instruction received at the Spark Labs core terminal.";
-        }
-
-        function startVoice() {
-            const rec = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
-            const btn = document.getElementById('mic-btn');
-            btn.classList.add('mic-active');
-            rec.start();
-            rec.onresult = (e) => {
-                userInput.value = e.results[0][0].transcript;
-                btn.classList.remove('mic-active');
-                sendMessage();
-            };
-            rec.onerror = () => btn.classList.remove('mic-active');
-        }
-
-        async function exportPDF() {
-            const { jsPDF } = window.jspdf;
-            const canvas = await html2canvas(chatBox, { backgroundColor: '#020617', scale: 2 });
-            const doc = new jsPDF('p', 'mm', 'a4');
-            const imgData = canvas.toDataURL('image/png');
-            doc.text("Official Spark AI Export | Origin Spark Labs", 10, 10);
-            doc.addImage(imgData, 'PNG', 10, 20, 190, (canvas.height * 190) / canvas.width);
-            doc.save("Origin_Spark_AI.pdf");
-        }
-
-        function clearMemory() { localStorage.clear(); location.reload(); }
-        render();
-    </script>
 </body>
 </html>
