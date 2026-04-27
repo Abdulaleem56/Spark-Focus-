@@ -9,17 +9,26 @@
         body { background-color: #020617; color: #f8fafc; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 20px; line-height: 1.6; }
         header { text-align: center; padding: 60px 0; background: linear-gradient(to bottom, #0f172a, #020617); }
         h1 { color: #38bdf8; font-size: 2.8rem; margin: 0; letter-spacing: -1px; }
-        .tagline { color: #94a3b8; font-size: 1.2rem; font-weight: 300; margin-bottom: 10px; }
+        .tagline { color: #94a3b8; font-size: 1.2rem; font-weight: 300; margin-bottom: 20px; }
         .founder-label { color: #38bdf8; font-size: 0.9rem; letter-spacing: 2px; font-weight: bold; text-transform: uppercase; }
         
         .section { max-width: 800px; margin: 40px auto; }
         h2 { border-left: 4px solid #38bdf8; padding-left: 15px; margin-bottom: 30px; }
         .card { background: #1e293b; padding: 25px; border-radius: 16px; border: 1px solid #334155; margin-bottom: 20px; position: relative; }
-        .btn { background: linear-gradient(45deg, #38bdf8, #0ea5e9); color: #020617; padding: 14px 28px; text-decoration: none; border-radius: 10px; font-weight: bold; display: inline-block; width: 100%; text-align: center; border: none; cursor: pointer; font-size: 1rem; box-sizing: border-box; }
-        
+        .btn { background: linear-gradient(45deg, #38bdf8, #0ea5e9); color: #020617; padding: 14px 28px; text-decoration: none; border-radius: 10px; font-weight: bold; display: inline-block; width: 100%; text-align: center; border: none; cursor: pointer; font-size: 1rem; box-sizing: border-box; transition: opacity 0.2s; }
+        .btn:hover { opacity: 0.9; }
+
+        /* Form Styles */
+        input, textarea, select { 
+            width: 100%; padding: 15px; margin-bottom: 15px; border-radius: 10px; 
+            border: 1px solid #334155; background: #0f172a; color: white; 
+            box-sizing: border-box; font-size: 16px; outline: none;
+        }
+        input:focus { border-color: #38bdf8; }
+
         /* AI Terminal Popup Styles */
         #ai-terminal { 
-            display: none; position: fixed; bottom: 0; left: 0; width: 100%; height: 85%; 
+            display: none; position: fixed; bottom: 0; left: 0; width: 100%; height: 80%; 
             background: #020617; border-top: 3px solid #38bdf8; z-index: 9999; 
             flex-direction: column; box-shadow: 0 -10px 30px rgba(0,0,0,0.8);
         }
@@ -28,11 +37,9 @@
         .bubble { padding: 12px 16px; border-radius: 14px; max-width: 85%; font-size: 0.95rem; }
         .ai-msg { align-self: flex-start; background: #1e293b; color: white; border: 1px solid #334155; }
         .user-msg { align-self: flex-end; background: #38bdf8; color: #020617; font-weight: 600; }
-        
         .input-area { padding: 15px; background: #0f172a; display: flex; gap: 10px; border-top: 1px solid #334155; }
-        #userInput { flex: 1; background: #020617; border: 1px solid #334155; color: white; padding: 12px; border-radius: 8px; outline: none; font-size: 16px; }
-        .send-btn { background: #38bdf8; border: none; padding: 10px 20px; border-radius: 8px; font-weight: bold; cursor: pointer; color: #020617; }
-        .close-btn { background: none; border: none; color: #ef4444; font-size: 28px; cursor: pointer; font-weight: bold; }
+        #userInput { margin-bottom: 0; flex: 1; }
+        .close-btn { background: none; border: none; color: #ef4444; font-size: 28px; cursor: pointer; }
 
         footer { text-align: center; margin-top: 80px; padding: 40px; color: #475569; font-size: 0.9rem; border-top: 1px solid #1e293b; }
         .highlight { color: #38bdf8; font-weight: bold; }
@@ -42,22 +49,43 @@
 
     <header>
         <h1>Origin Spark Labs</h1>
-        <p class="tagline">Custom Web Solutions & App Development</p>
+        <p class="tagline">Custom Web Solutions | Founded by Abdulaleem</p>
         <div class="founder-label">Founded by Abdulaleem</div>
     </header>
 
     <div class="section">
-        <h2>My Projects</h2>
+        <h2>My Work</h2>
         <div class="card" style="border-top: 4px solid #38bdf8;">
             <h3>Spark AI Mega</h3>
-            <p style="color: #94a3b8;">Built by <span class="highlight">Abdulaleem</span>. An advanced AI interface for Origin Spark Labs.</p>
+            <p style="color: #94a3b8;">Created by <span class="highlight">Abdulaleem</span>. An advanced AI interface for automated business interactions.</p>
             <button class="btn" onclick="openTerminal()">Launch AI Terminal</button>
         </div>
 
         <div class="card">
             <h3>Spark Focus Timer</h3>
-            <p style="color: #94a3b8;">High-performance productivity tool.</p>
+            <p style="color: #94a3b8;">High-performance productivity tool for deep focus.</p>
             <a href="index.html" class="btn">Launch Project</a>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Start a Project</h2>
+        <div class="card">
+            <p style="color: #94a3b8;">Ready to build something great? Message me directly.</p>
+            <form action="https://formspree.io/f/xgoryzyn" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <select name="country" required>
+                    <option value="" disabled selected>Select Your Country</option>
+                    <option value="Nigeria">Nigeria</option>
+                    <option value="Canada">Canada</option>
+                    <option value="Hungary">Hungary</option>
+                    <option value="Saudi Arabia">Saudi Arabia</option>
+                    <option value="Other">Other (Global)</option>
+                </select>
+                <textarea name="message" placeholder="Tell me about your project..." rows="4" required></textarea>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
         </div>
     </div>
 
@@ -65,23 +93,23 @@
         <div id="ai-header">
             <div style="display: flex; flex-direction: column;">
                 <span style="color: #38bdf8; font-weight: bold; letter-spacing: 1px;">SPARK CORE V1.0</span>
-                <span style="font-size: 10px; color: #94a3b8;">CREATED BY ABDULALEEM</span>
+                <span style="font-size: 10px; color: #475569;">FOUNDED BY ABDULALEEM</span>
             </div>
             <button class="close-btn" onclick="closeTerminal()">&times;</button>
         </div>
         <div id="chat-window">
-            <div class="bubble ai-msg">Welcome, Founder. Spark AI is online. How can Origin Spark Labs assist you today?</div>
+            <div class="bubble ai-msg">Spark AI initialized. Welcome back, Founder Abdulaleem.</div>
         </div>
         <div class="input-area">
-            <input type="text" id="userInput" placeholder="Type command..." onkeypress="if(event.key==='Enter')chat()">
-            <button class="send-btn" onclick="chat()">SEND</button>
+            <input type="text" id="userInput" placeholder="Ask Spark AI..." onkeypress="if(event.key==='Enter')chat()">
+            <button onclick="chat()" style="background:#38bdf8; border:none; padding:10px 15px; border-radius:8px; font-weight:bold; color:#020617; cursor:pointer;">SEND</button>
         </div>
     </div>
 
     <footer>
-        Created by <span class="highlight">Origin Spark Labs</span> <br>
-        Founded by <span class="highlight">Abdulaleem</span> <br>
-        &copy; 2026 Serving Global Clients
+        Created by <span class="highlight">Origin Spark Labs</span><br>
+        Founded by <span class="highlight">Abdulaleem</span><br>
+        &copy; 2026 | Serving Global Clients
     </footer>
 
     <script>
@@ -89,14 +117,8 @@
         const windowBox = document.getElementById('chat-window');
         const inputField = document.getElementById('userInput');
 
-        function openTerminal() {
-            terminal.style.display = 'flex';
-            inputField.focus();
-        }
-
-        function closeTerminal() {
-            terminal.style.display = 'none';
-        }
+        function openTerminal() { terminal.style.display = 'flex'; }
+        function closeTerminal() { terminal.style.display = 'none'; }
 
         function addBubble(text, type) {
             const d = document.createElement('div');
@@ -109,21 +131,33 @@
         function chat() {
             const val = inputField.value.trim();
             if(!val) return;
-
             addBubble(val, 'user');
             inputField.value = '';
 
             setTimeout(() => {
-                let reply = "Command received by Origin Spark Labs. Awaiting Founder authorization.";
+                let reply = "";
                 const s = val.toLowerCase();
 
-                if(s.includes("hello") || s.includes("hi")) reply = "Greetings, Founder Abdulaleem. All systems are operational.";
-                if(s.includes("founder") || s.includes("abdulaleem")) reply = "Abdulaleem is the Founder and CEO of Origin Spark Labs.";
-                if(s.includes("who created you")) reply = "I was created and programmed by Abdulaleem.";
-                
+                if(s.includes("hello") || s.includes("hi")) {
+                    reply = "Hello, Founder Abdulaleem. Systems at Origin Spark Labs are optimal.";
+                } 
+                else if(s.includes("founder") || s.includes("ceo") || s.includes("abdulaleem")) {
+                    reply = "Abdulaleem is the Founder and CEO of Origin Spark Labs, leading tech innovation.";
+                }
+                else if(s.includes("time") || s.includes("date")) {
+                    reply = "Current System Time: " + new Date().toLocaleString();
+                }
+                else if(s.match(/[0-9]/) && (s.includes("+") || s.includes("-") || s.includes("*") || s.includes("/"))) {
+                    try { reply = "Result: " + eval(s); } catch { reply = "Math syntax error."; }
+                }
+                else {
+                    reply = "I am processing that request for Origin Spark Labs. You can ask me about 'Founder', 'Math', or 'Services'.";
+                }
+
                 addBubble(reply, 'ai');
-            }, 300);
+            }, 400);
         }
     </script>
 </body>
 </html>
+
